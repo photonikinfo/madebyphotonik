@@ -486,7 +486,8 @@ h3 {
 
 .split-section,
 .process-panel,
-.retainer-panel {
+.retainer-panel,
+.local-seo-panel {
   display: grid;
   gap: 28px;
 }
@@ -663,6 +664,111 @@ h3 {
 .service-card h3 {
   margin-bottom: 12px;
   font-size: 1.4rem;
+}
+
+.local-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.local-card {
+  padding: 22px;
+  min-height: 194px;
+  border-radius: var(--radius-md);
+}
+
+.local-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.tag-cloud span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 179, 122, 0.22);
+  background: rgba(212, 179, 122, 0.08);
+  color: var(--text);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.faq-heading {
+  margin-top: 2px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.faq-item {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.faq-item[open] {
+  border-color: rgba(212, 179, 122, 0.28);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1.02;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  color: var(--accent);
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.faq-item[open] summary::after {
+  content: "–";
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid rgba(212, 179, 122, 0.34);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 22px 22px;
+  color: var(--muted);
+  line-height: 1.8;
 }
 
 .process-grid {
@@ -926,7 +1032,9 @@ h3 {
   .benefit-grid,
   .services-grid,
   .process-grid,
-  .retainer-list {
+  .retainer-list,
+  .local-grid,
+  .faq-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -962,7 +1070,9 @@ h3 {
   .services-grid,
   .process-grid,
   .retainer-list,
-  .mosaic {
+  .mosaic,
+  .local-grid,
+  .faq-grid {
     grid-template-columns: 1fr;
   }
 
@@ -994,6 +1104,10 @@ h3 {
 
   .tall {
     min-height: 360px;
+  }
+
+  .faq-item summary {
+    font-size: 1.35rem;
   }
 
   h1 {

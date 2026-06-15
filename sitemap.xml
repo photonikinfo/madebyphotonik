@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://madebyphotonik.netlify.app/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://madebyphotonik.netlify.app/Real%20Estate/cda2ae30-609c-4676-adf7-3932787cbc8c_rw_3840.jpg</image:loc>
+      <image:title>Real Estate</image:title>
+      <image:caption>Luxury real estate photography in Phuket</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madebyphotonik.netlify.app/Food%20Photography/2898faf7-e80b-47ae-8633-46c9ee684898_rw_1200.jpg</image:loc>
+      <image:title>Food Photography</image:title>
+      <image:caption>Food photography for Phuket hospitality brands</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madebyphotonik.netlify.app/Event/6ac54ddc-1d72-4f2c-a0f2-0e772bdb275f_rw_1920.jpg</image:loc>
+      <image:title>Event</image:title>
+      <image:caption>Event photography for premium brands</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madebyphotonik.netlify.app/Product/5e4c6c60-3d9a-43c3-b21a-c1be21f61671_rw_1200.jpg</image:loc>
+      <image:title>Product</image:title>
+      <image:caption>Product photography for premium brands</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madebyphotonik.netlify.app/Wedding%20Photos/Z62_1480.JPG</image:loc>
+      <image:title>Wedding Photos</image:title>
+      <image:caption>Wedding photography in Phuket</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madebyphotonik.netlify.app/Party%20%26%20Nightlife/6fa2534c-1f35-45fe-942a-a774f82e0d85_rw_1920.jpg</image:loc>
+      <image:title>Party and Nightlife</image:title>
+      <image:caption>Party and nightlife photography for destination events</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madebyphotonik.netlify.app/Sports/0af88d78-18fd-46ea-8a27-8d5b436260ee_rw_1920.jpg</image:loc>
+      <image:title>Sports</image:title>
+      <image:caption>Sports photography for action-driven brands</image:caption>
+    </image:image>
+  </url>
+</urlset>
