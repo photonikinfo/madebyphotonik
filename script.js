@@ -45,6 +45,85 @@ if (lightbox instanceof HTMLDialogElement) {
       .trim()
       .replace(/\b\w/g, (character) => character.toUpperCase());
 
+  const buildGalleryItems = (groupName, sources) => {
+    const groupLabel = formatGroupLabel(groupName);
+
+    return sources.map((src) => ({
+      caption: groupLabel,
+      group: groupName,
+      groupLabel,
+      src,
+    }));
+  };
+
+  const galleryGroups = {
+    featured: buildGalleryItems("featured", [
+      "./Real%20Estate/cda2ae30-609c-4676-adf7-3932787cbc8c_rw_3840.jpg",
+      "./Food%20Photography/2898faf7-e80b-47ae-8633-46c9ee684898_rw_1200.jpg",
+      "./Product/5e4c6c60-3d9a-43c3-b21a-c1be21f61671_rw_1200.jpg",
+      "./Wedding%20Photos/Z62_1480.JPG",
+    ]),
+    "Real Estate": buildGalleryItems("Real Estate", [
+      "./Real%20Estate/cda2ae30-609c-4676-adf7-3932787cbc8c_rw_3840.jpg",
+      "./Real%20Estate/01e9c26e-7c5b-48c5-98ed-27c35a403784_rw_1200.jpg",
+      "./Real%20Estate/18ab797b-c323-459c-b422-58e020eb15f0_rw_1200.jpg",
+      "./Real%20Estate/4b36bfd0-d1e6-4f31-ba1a-e5dfc4e3d659_rw_1200.jpg",
+      "./Real%20Estate/97bdce87-1e9b-410c-916c-3de485e5363e_rw_1200.jpg",
+      "./Real%20Estate/a145d123-110d-4047-a393-048fd9cca39e_rw_3840.jpg",
+      "./Real%20Estate/e5cc9e4c-d416-4bd4-87b2-ddfbb1761350_rw_1920.jpg",
+      "./Real%20Estate/e8253d6a-df8b-4f95-9c12-c9c6f9f7a18a_rw_3840.jpg",
+    ]),
+    "Food Photography": buildGalleryItems("Food Photography", [
+      "./Food%20Photography/2898faf7-e80b-47ae-8633-46c9ee684898_rw_1200.jpg",
+      "./Food%20Photography/1a184fc3-8a65-426a-9b52-65c83eccdf35_rw_1200.jpg",
+      "./Food%20Photography/8969aff2-f300-4fb3-a0d0-197c2c53040f_rw_3840.jpg",
+      "./Food%20Photography/a0ffcd88-d048-4ad7-bdeb-68e1b133109c_rw_600.jpg",
+      "./Food%20Photography/d55b01ff-a995-4690-8a53-8b621060ae3b_rw_600.jpg",
+    ]),
+    "Wedding Photos": buildGalleryItems("Wedding Photos", [
+      "./Wedding%20Photos/Z62_1480.JPG",
+      "./Wedding%20Photos/700306584_10245107369365333_1400997159503684980_n.jpg",
+      "./Wedding%20Photos/750_6064.JPG",
+      "./Wedding%20Photos/Z62_0783.JPG",
+      "./Wedding%20Photos/Z62_1116.JPG",
+      "./Wedding%20Photos/Z62_1523.JPG",
+      "./Wedding%20Photos/Z62_1594.JPG",
+    ]),
+    Event: buildGalleryItems("Event", [
+      "./Event/6ac54ddc-1d72-4f2c-a0f2-0e772bdb275f_rw_1920.jpg",
+      "./Event/217be994-0943-4562-af7f-2b1afcaf3c14_rw_1920.jpg",
+      "./Event/6acf3239-5e32-49e5-9f8e-713fb92e4f3e_rw_1200.jpg",
+      "./Event/84fc8ab6-94af-4986-87c7-de57c99d4970_rw_1200.jpg",
+      "./Event/981a3af8-e23f-4e6f-8e3b-c91961b17b26_rw_1920.jpg",
+      "./Event/bc702566-16c0-4f5d-902b-de5dd5492057_rw_1200.jpg",
+      "./Event/d29721b5-1091-4f09-81db-4d4affc3d761_rw_600.jpg",
+      "./Event/d9520d2a-8197-4cc6-a964-a26d44965919_rw_1920.jpg",
+      "./Event/f62a78e7-3042-4c91-9c5b-37b7432cb40e_rw_1200.jpg",
+    ]),
+    "Party & Nightlife": buildGalleryItems("Party & Nightlife", [
+      "./Party%20%26%20Nightlife/6fa2534c-1f35-45fe-942a-a774f82e0d85_rw_1920.jpg",
+      "./Party%20%26%20Nightlife/7483bc8d-fa15-4429-8aef-7cae42c9d63b_rw_1200.jpg",
+      "./Party%20%26%20Nightlife/7845dc6e-bbec-4089-b06a-e95a7cf10edb_rw_1200.jpg",
+      "./Party%20%26%20Nightlife/de2f69ca-e3b1-4f90-889c-9fbfeae8f653_rw_1920.jpg",
+      "./Party%20%26%20Nightlife/e7385fcb-6a64-41aa-800d-7f16f40b30e9_rw_1200.jpg",
+      "./Party%20%26%20Nightlife/ffb598a8-aa59-495c-a3b4-88594c240973_rw_1920.jpg",
+    ]),
+    Product: buildGalleryItems("Product", [
+      "./Product/5e4c6c60-3d9a-43c3-b21a-c1be21f61671_rw_1200.jpg",
+      "./Product/1b31ea7b-0e2d-4b75-98e8-69af993eb167_rw_600.jpg",
+      "./Product/6d3b5311-8a82-41c0-9685-c6bd6ed7aeea_rw_1200.jpg",
+      "./Product/9eaafa76-4df1-4efa-8bba-1925cd539d4e_rw_600.jpg",
+      "./Product/b7f26f6e-51e3-4cdb-aac3-131501fea818_rw_1200.jpg",
+      "./Product/f24db809-688f-48cc-baf4-40477c9aec84_rw_600.jpg",
+    ]),
+    Sports: buildGalleryItems("Sports", [
+      "./Sports/0af88d78-18fd-46ea-8a27-8d5b436260ee_rw_1920.jpg",
+      "./Sports/780451b4-885d-4152-8c4d-cf8df97ea6f4_rw_1200.jpg",
+      "./Sports/84f21e34-790f-49b6-b2eb-560a35f90b1d_rw_1920.jpg",
+      "./Sports/97222911-9bee-411c-a230-6f64d9cbf816_rw_1200.jpg",
+    ]),
+  };
+
   const resolveGroupName = (trigger, image) => {
     const explicitGroup = trigger.getAttribute("data-lightbox-group")?.trim();
 
@@ -69,7 +148,7 @@ if (lightbox instanceof HTMLDialogElement) {
     return "portfolio";
   };
 
-  const items = triggers
+  const triggerItems = triggers
     .map((trigger, index) => {
       const image = trigger.querySelector("img");
 
@@ -82,11 +161,12 @@ if (lightbox instanceof HTMLDialogElement) {
         image.alt.trim() ||
         `Photo ${index + 1}`;
       const group = resolveGroupName(trigger, image);
+      const groupLabel = formatGroupLabel(group);
 
       return {
         caption,
         group,
-        groupLabel: formatGroupLabel(group),
+        groupLabel,
         image,
         src: image.currentSrc || image.src,
         trigger,
@@ -94,7 +174,7 @@ if (lightbox instanceof HTMLDialogElement) {
     })
     .filter(Boolean);
 
-  let activeItems = items;
+  let activeItems = [];
   let activeIndex = 0;
   let returnFocusNode = null;
 
@@ -120,35 +200,39 @@ if (lightbox instanceof HTMLDialogElement) {
 
     if (imageNode instanceof HTMLImageElement) {
       imageNode.src = item.src;
-      imageNode.alt = item.caption;
+      imageNode.alt = item.caption || item.groupLabel;
     }
 
     if (captionNode) {
-      captionNode.textContent = item.caption;
+      captionNode.textContent = item.caption || item.groupLabel;
     }
 
     if (counterNode) {
-      counterNode.textContent = `${item.groupLabel} • ${activeIndex + 1} / ${activeItems.length}`;
+      counterNode.textContent = `${activeIndex + 1} / ${activeItems.length}`;
     }
 
     syncNavState();
   };
 
   const openLightbox = (triggerNode) => {
-    if (!items.length) {
+    if (!triggerItems.length) {
       return;
     }
 
-    const activeItem = items.find((item) => item.trigger === triggerNode);
+    const activeItem = triggerItems.find((item) => item.trigger === triggerNode);
 
     if (!activeItem) {
       return;
     }
 
-    activeItems = items.filter((item) => item.group === activeItem.group);
-    activeIndex = activeItems.findIndex((item) => item.trigger === triggerNode);
+    const groupItems = galleryGroups[activeItem.group];
+    activeItems = Array.isArray(groupItems) && groupItems.length > 0 ? groupItems : [activeItem];
+    activeIndex = activeItems.findIndex((item) => item.src === activeItem.src);
+    if (activeIndex < 0) {
+      activeIndex = 0;
+    }
     returnFocusNode = triggerNode || document.activeElement;
-    updateLightbox(activeIndex < 0 ? 0 : activeIndex);
+    updateLightbox(activeIndex);
 
     if (!lightbox.open) {
       lightbox.showModal();
