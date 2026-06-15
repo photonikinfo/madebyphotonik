@@ -597,13 +597,6 @@ h3 {
   text-transform: uppercase;
 }
 
-.section-note {
-  margin-top: 0;
-  color: var(--soft);
-  font-size: 0.92rem;
-  letter-spacing: 0.02em;
-}
-
 .lightbox-trigger {
   cursor: zoom-in;
   transition:
@@ -807,6 +800,7 @@ h3 {
   font-size: 0.84rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .lightbox-close,
@@ -869,6 +863,14 @@ h3 {
   box-shadow:
     0 14px 30px rgba(0, 0, 0, 0.28),
     0 0 0 3px rgba(212, 179, 122, 0.28);
+}
+
+.lightbox-close:disabled,
+.lightbox-nav:disabled {
+  opacity: 0.34;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
 }
 
 [data-reveal] {

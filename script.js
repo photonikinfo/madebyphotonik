@@ -37,6 +37,38 @@ if (lightbox instanceof HTMLDialogElement) {
   const prevButton = lightbox.querySelector("[data-lightbox-prev]");
   const nextButton = lightbox.querySelector("[data-lightbox-next]");
   const triggers = Array.from(document.querySelectorAll("[data-lightbox]"));
+
+  const formatGroupLabel = (groupName) =>
+    (groupName || "portfolio")
+      .replace(/[-_]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .replace(/\b\w/g, (character) => character.toUpperCase());
+
+  const resolveGroupName = (trigger, image) => {
+    const explicitGroup = trigger.getAttribute("data-lightbox-group")?.trim();
+
+    if (explicitGroup) {
+      return explicitGroup;
+    }
+
+    const source = image.currentSrc || image.getAttribute("src") || "";
+
+    try {
+      const decodedPath = decodeURIComponent(new URL(source, document.baseURI).pathname);
+      const pathParts = decodedPath.split("/").filter(Boolean);
+      const folderName = pathParts.length > 1 ? pathParts[pathParts.length - 2] : "";
+
+      if (folderName) {
+        return folderName;
+      }
+    } catch {
+      // Fall back to the default portfolio group if the source cannot be parsed.
+    }
+
+    return "portfolio";
+  };
+
   const items = triggers
     .map((trigger, index) => {
       const image = trigger.querySelector("img");
@@ -49,9 +81,12 @@ if (lightbox instanceof HTMLDialogElement) {
         trigger.querySelector("figcaption")?.textContent?.trim() ||
         image.alt.trim() ||
         `Photo ${index + 1}`;
+      const group = resolveGroupName(trigger, image);
 
       return {
         caption,
+        group,
+        groupLabel: formatGroupLabel(group),
         image,
         src: image.currentSrc || image.src,
         trigger,
@@ -59,16 +94,29 @@ if (lightbox instanceof HTMLDialogElement) {
     })
     .filter(Boolean);
 
+  let activeItems = items;
   let activeIndex = 0;
   let returnFocusNode = null;
 
+  const syncNavState = () => {
+    const hasMultipleItems = activeItems.length > 1;
+
+    if (prevButton instanceof HTMLButtonElement) {
+      prevButton.disabled = !hasMultipleItems;
+    }
+
+    if (nextButton instanceof HTMLButtonElement) {
+      nextButton.disabled = !hasMultipleItems;
+    }
+  };
+
   const updateLightbox = (index) => {
-    if (!items.length) {
+    if (!activeItems.length) {
       return;
     }
 
-    activeIndex = (index + items.length) % items.length;
-    const item = items[activeIndex];
+    activeIndex = (index + activeItems.length) % activeItems.length;
+    const item = activeItems[activeIndex];
 
     if (imageNode instanceof HTMLImageElement) {
       imageNode.src = item.src;
@@ -80,17 +128,27 @@ if (lightbox instanceof HTMLDialogElement) {
     }
 
     if (counterNode) {
-      counterNode.textContent = `${activeIndex + 1} / ${items.length}`;
+      counterNode.textContent = `${item.groupLabel} • ${activeIndex + 1} / ${activeItems.length}`;
     }
+
+    syncNavState();
   };
 
-  const openLightbox = (index, triggerNode) => {
+  const openLightbox = (triggerNode) => {
     if (!items.length) {
       return;
     }
 
+    const activeItem = items.find((item) => item.trigger === triggerNode);
+
+    if (!activeItem) {
+      return;
+    }
+
+    activeItems = items.filter((item) => item.group === activeItem.group);
+    activeIndex = activeItems.findIndex((item) => item.trigger === triggerNode);
     returnFocusNode = triggerNode || document.activeElement;
-    updateLightbox(index);
+    updateLightbox(activeIndex < 0 ? 0 : activeIndex);
 
     if (!lightbox.open) {
       lightbox.showModal();
@@ -125,11 +183,11 @@ if (lightbox instanceof HTMLDialogElement) {
     trigger.setAttribute("tabindex", "0");
     trigger.setAttribute("aria-label", `Open photo: ${caption}`);
 
-    trigger.addEventListener("click", () => openLightbox(index, trigger));
+    trigger.addEventListener("click", () => openLightbox(trigger));
     trigger.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        openLightbox(index, trigger);
+        openLightbox(trigger);
       }
     });
   });
@@ -162,4 +220,6 @@ if (lightbox instanceof HTMLDialogElement) {
       updateLightbox(activeIndex + 1);
     }
   });
+
+  syncNavState();
 }
