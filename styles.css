@@ -1,16 +1,18 @@
 :root {
-  color-scheme: light;
-  --bg: #f5efe8;
-  --bg-soft: #ffffff;
-  --panel: rgba(255, 255, 255, 0.72);
-  --panel-strong: rgba(255, 255, 255, 0.88);
-  --line: rgba(255, 255, 255, 0.18);
-  --text: #171310;
-  --muted: rgba(23, 19, 16, 0.72);
-  --soft: rgba(23, 19, 16, 0.55);
-  --accent: #8b6741;
-  --accent-soft: rgba(139, 103, 65, 0.14);
-  --shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+  color-scheme: dark;
+  --bg: #050505;
+  --bg-soft: #0d0d0d;
+  --panel: rgba(12, 12, 12, 0.96);
+  --panel-strong: rgba(18, 18, 18, 0.98);
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #f5efe8;
+  --muted: rgba(245, 239, 232, 0.72);
+  --soft: rgba(245, 239, 232, 0.54);
+  --accent: #c8a36a;
+  --accent-soft: rgba(200, 163, 106, 0.16);
+  --shadow: 0 28px 80px rgba(0, 0, 0, 0.56);
+  --surface: linear-gradient(180deg, rgba(18, 18, 18, 0.98) 0%, rgba(8, 8, 8, 0.98) 100%);
+  --surface-strong: linear-gradient(180deg, rgba(22, 22, 22, 0.98) 0%, rgba(10, 10, 10, 0.98) 100%);
   --radius-xl: 34px;
   --radius-lg: 26px;
   --radius-md: 20px;
@@ -35,10 +37,10 @@ body {
   font-family: "Manrope", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   background:
-    radial-gradient(circle at top left, rgba(139, 103, 65, 0.2), transparent 24%),
-    radial-gradient(circle at 80% 12%, rgba(255, 255, 255, 0.06), transparent 18%),
-    radial-gradient(circle at 55% 50%, rgba(255, 255, 255, 0.04), transparent 34%),
-    linear-gradient(180deg, #050505 0%, #0b0b0b 46%, #050505 100%);
+    radial-gradient(circle at top left, rgba(200, 163, 106, 0.08), transparent 24%),
+    radial-gradient(circle at 80% 12%, rgba(255, 255, 255, 0.03), transparent 18%),
+    radial-gradient(circle at 55% 50%, rgba(255, 255, 255, 0.02), transparent 34%),
+    linear-gradient(180deg, #020202 0%, #070707 46%, #020202 100%);
   overflow-x: hidden;
 }
 
@@ -52,15 +54,15 @@ body::after {
 
 body::before {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 18%),
-    linear-gradient(315deg, rgba(139, 103, 65, 0.12), transparent 24%);
-  opacity: 0.44;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 28%),
+    linear-gradient(315deg, rgba(200, 163, 106, 0.05), transparent 24%);
+  opacity: 0.34;
 }
 
 body::after {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px);
   background-size: 4px 4px;
-  opacity: 0.06;
+  opacity: 0.04;
   mix-blend-mode: soft-light;
 }
 
@@ -111,19 +113,19 @@ body.no-scroll {
 
 .page-backdrop {
   background:
-    radial-gradient(circle at 15% 20%, rgba(139, 103, 65, 0.22), transparent 20%),
-    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.08), transparent 18%);
-  filter: blur(28px);
-  opacity: 0.52;
+    radial-gradient(circle at 15% 20%, rgba(200, 163, 106, 0.08), transparent 20%),
+    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.025), transparent 18%);
+  filter: blur(42px);
+  opacity: 0.22;
 }
 
 .page-grid {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 120px 120px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 92%);
-  opacity: 0.12;
+  opacity: 0.06;
 }
 
 .topbar {
@@ -138,13 +140,10 @@ body.no-scroll {
   margin-bottom: 24px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.68) 18%, rgba(248, 243, 236, 0.58) 55%, rgba(255, 255, 255, 0.34) 100%);
-  backdrop-filter: blur(26px) saturate(180%);
+  background: var(--surface-strong);
   box-shadow:
     0 22px 60px rgba(0, 0, 0, 0.48),
-    inset 0 1px 0 rgba(255, 255, 255, 0.92),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .brand {
@@ -161,18 +160,16 @@ body.no-scroll {
   height: 48px;
   padding: 4px;
   border-radius: 50%;
-  border: 1px solid rgba(139, 103, 65, 0.24);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.98), transparent 36%),
-    linear-gradient(155deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.74) 50%, rgba(243, 237, 230, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(24, 24, 24, 0.98) 0%, rgba(6, 6, 6, 0.98) 100%);
   color: var(--text);
   font-weight: 800;
   letter-spacing: 0.12em;
   font-size: 0.78rem;
   overflow: hidden;
   box-shadow:
-    0 14px 26px rgba(27, 19, 12, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 14px 26px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .brand-mark img {
@@ -225,7 +222,7 @@ body.no-scroll {
   bottom: -4px;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(139, 103, 65, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(200, 163, 106, 0.8), transparent);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 180ms ease;
@@ -267,42 +264,39 @@ body.no-scroll {
 }
 
 .topbar-cta {
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.76) 46%, rgba(246, 241, 234, 0.7) 100%);
-  border-color: rgba(255, 255, 255, 0.24);
+  background: var(--surface);
+  border-color: rgba(255, 255, 255, 0.08);
   color: var(--text);
   white-space: nowrap;
   box-shadow:
-    0 16px 36px rgba(0, 0, 0, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(139, 103, 65, 0.08);
+    0 16px 36px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .button-primary {
   background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.76) 46%, rgba(240, 233, 226, 0.92) 100%);
-  border-color: rgba(255, 255, 255, 0.24);
+    linear-gradient(180deg, rgba(28, 26, 22, 0.98) 0%, rgba(11, 10, 8, 0.98) 100%);
+  border-color: rgba(200, 163, 106, 0.28);
   color: var(--text);
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(139, 103, 65, 0.08);
+    0 18px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .button-secondary {
   background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.58) 50%, rgba(248, 242, 235, 0.76) 100%);
-  border-color: rgba(255, 255, 255, 0.2);
+    linear-gradient(180deg, rgba(18, 18, 18, 0.98) 0%, rgba(8, 8, 8, 0.98) 100%);
+  border-color: rgba(255, 255, 255, 0.08);
   color: var(--muted);
   box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+    0 12px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .topbar-cta:hover,
 .button:hover {
   transform: translateY(-1px);
-  filter: saturate(1.02);
+  filter: none;
 }
 
 .section {
@@ -310,14 +304,10 @@ body.no-scroll {
   padding: 36px;
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.7) 22%, rgba(247, 242, 235, 0.62) 56%, rgba(255, 255, 255, 0.42) 100%),
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.96), transparent 32%);
+  background: var(--surface);
   box-shadow:
     var(--shadow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.94),
-    inset 0 -1px 0 rgba(139, 103, 65, 0.08);
-  backdrop-filter: blur(32px) saturate(180%);
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .hero {
@@ -412,15 +402,11 @@ h3 {
 .collage-card,
 .local-card,
 .faq-item {
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 28%, rgba(247, 241, 234, 0.62) 66%, rgba(255, 255, 255, 0.36) 100%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.42), transparent 34%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
   box-shadow:
-    0 18px 44px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(139, 103, 65, 0.06);
-  backdrop-filter: blur(24px) saturate(175%);
+    0 18px 44px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .hero-points div {
@@ -451,16 +437,13 @@ h3 {
   gap: 10px;
   padding: 12px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.7) 40%, rgba(246, 240, 233, 0.72) 100%);
-  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
   color: var(--text);
   font-size: 0.88rem;
   box-shadow:
-    0 16px 36px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(139, 103, 65, 0.06);
+    0 16px 36px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .badge-dot {
@@ -468,7 +451,7 @@ h3 {
   height: 8px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 0 6px rgba(200, 163, 106, 0.08);
 }
 
 .collage {
@@ -486,7 +469,7 @@ h3 {
   border-radius: var(--radius-lg);
   box-shadow:
     0 26px 60px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .collage-card::after {
@@ -495,7 +478,7 @@ h3 {
   inset: 0;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, transparent 36%, rgba(0, 0, 0, 0.22) 100%),
-    linear-gradient(135deg, rgba(139, 103, 65, 0.12), transparent 30%);
+    linear-gradient(135deg, rgba(200, 163, 106, 0.08), transparent 30%);
 }
 
 .collage-large {
@@ -610,8 +593,8 @@ h3 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--accent) 0%, rgba(139, 103, 65, 0.12) 65%);
-  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.12);
+  background: radial-gradient(circle, var(--accent) 0%, rgba(200, 163, 106, 0.12) 65%);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05);
 }
 
 .mosaic {
@@ -632,7 +615,7 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.68) 100%);
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.72) 100%);
 }
 
 .mosaic-card figcaption {
@@ -661,16 +644,16 @@ h3 {
 .lightbox-trigger:hover,
 .lightbox-trigger:focus-visible {
   transform: translateY(-2px);
-  border-color: rgba(139, 103, 65, 0.32);
+  border-color: rgba(200, 163, 106, 0.28);
   box-shadow:
     0 20px 45px rgba(0, 0, 0, 0.28),
-    0 0 0 1px rgba(139, 103, 65, 0.2);
+    0 0 0 1px rgba(200, 163, 106, 0.16);
 }
 
 .lightbox-trigger:hover img,
 .lightbox-trigger:focus-visible img {
   transform: scale(1.02);
-  filter: saturate(1.02) contrast(1.02);
+  filter: none;
 }
 
 .span-7 {
@@ -745,9 +728,8 @@ h3 {
   min-height: 34px;
   padding: 0 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.74) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
   color: var(--text);
   font-size: 0.76rem;
   letter-spacing: 0.08em;
@@ -770,9 +752,8 @@ h3 {
 }
 
 .faq-item[open] {
-  border-color: rgba(255, 255, 255, 0.26);
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.72) 36%, rgba(247, 242, 235, 0.7) 100%);
+  border-color: var(--line);
+  background: var(--surface);
 }
 
 .faq-item summary {
@@ -807,7 +788,7 @@ h3 {
 }
 
 .faq-item summary:focus-visible {
-  outline: 2px solid rgba(139, 103, 65, 0.32);
+  outline: 2px solid rgba(200, 163, 106, 0.32);
   outline-offset: 4px;
   border-radius: 12px;
 }
@@ -863,7 +844,7 @@ h3 {
   justify-content: space-between;
   gap: 16px;
   padding: 26px 10px 6px;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
 }
 
 .footer p {
@@ -874,7 +855,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
 }
 
 .section-heading.compact h2 {
@@ -897,10 +878,7 @@ h3 {
 }
 
 .lightbox::backdrop {
-  background:
-    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.12), transparent 28%),
-    rgba(6, 5, 4, 0.88);
-  backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.92);
 }
 
 .lightbox-shell {
@@ -924,12 +902,10 @@ h3 {
   max-height: 100%;
   margin: 0 auto;
   padding: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-xl);
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.08) 30%, rgba(13, 11, 9, 0.72) 100%);
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(22px) saturate(165%);
+  background: var(--surface-strong);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.64);
 }
 
 .lightbox-image {
@@ -937,7 +913,7 @@ h3 {
   max-height: 78vh;
   object-fit: contain;
   border-radius: calc(var(--radius-xl) - 8px);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .lightbox-caption {
@@ -966,11 +942,10 @@ h3 {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
   color: var(--text);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.34);
   transition:
     transform 180ms ease,
     border-color 180ms ease,
@@ -982,9 +957,9 @@ h3 {
 .lightbox-nav:hover,
 .lightbox-nav:focus-visible {
   transform: translateY(-1px);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(200, 163, 106, 0.3);
   background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.12) 100%);
+    linear-gradient(180deg, rgba(28, 28, 28, 0.98) 0%, rgba(12, 12, 12, 0.98) 100%);
 }
 
 .lightbox-close {
@@ -1020,7 +995,7 @@ h3 {
 .lightbox-nav:focus-visible {
   box-shadow:
     0 14px 30px rgba(0, 0, 0, 0.28),
-    0 0 0 3px rgba(139, 103, 65, 0.28);
+    0 0 0 3px rgba(200, 163, 106, 0.28);
 }
 
 .lightbox-close:disabled,
