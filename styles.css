@@ -316,9 +316,9 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(3.8rem, 8vw, 7rem);
-  line-height: 0.93;
-  max-width: 10ch;
+  font-size: clamp(3rem, 6vw, 5.6rem);
+  line-height: 0.98;
+  max-width: 11.4ch;
 }
 
 h2 {
@@ -346,9 +346,10 @@ h3 {
 }
 
 .lede {
-  max-width: 62ch;
-  margin: 22px 0 0;
-  font-size: 1.08rem;
+  max-width: 58ch;
+  margin: 20px 0 0;
+  font-size: 0.99rem;
+  line-height: 1.75;
 }
 
 .hero-actions {
@@ -392,7 +393,7 @@ h3 {
 
 .hero-visual {
   position: relative;
-  min-height: 720px;
+  min-height: 620px;
 }
 
 .visual-badge {
@@ -423,7 +424,7 @@ h3 {
 .collage {
   display: grid;
   grid-template-columns: 1.08fr 0.78fr;
-  grid-template-rows: 250px 210px 180px;
+  grid-template-rows: 280px 240px;
   gap: 16px;
   height: 100%;
   padding-top: 62px;
@@ -458,11 +459,6 @@ h3 {
 .collage-small {
   grid-column: 2;
   grid-row: 2;
-}
-
-.collage-wide {
-  grid-column: 1 / span 2;
-  grid-row: 3;
 }
 
 .signal-strip {
@@ -1026,7 +1022,7 @@ h3 {
   }
 
   .hero-visual {
-    min-height: 620px;
+    min-height: 500px;
   }
 
   .benefit-grid,
@@ -1094,7 +1090,7 @@ h3 {
 
   .collage {
     grid-template-columns: 1fr 0.82fr;
-    grid-template-rows: 210px 170px 150px;
+    grid-template-rows: 200px 170px;
     gap: 12px;
   }
 
@@ -1111,7 +1107,7 @@ h3 {
   }
 
   h1 {
-    font-size: clamp(3.1rem, 15vw, 5rem);
+    font-size: clamp(2.8rem, 13vw, 4.6rem);
   }
 
   h2 {
@@ -1180,7 +1176,7 @@ h3 {
   }
 
   .collage {
-    padding-top: 70px;
+    padding-top: 68px;
   }
 
   .lightbox-shell {

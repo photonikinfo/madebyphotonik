@@ -58,10 +58,9 @@ if (lightbox instanceof HTMLDialogElement) {
 
   const galleryGroups = {
     featured: buildGalleryItems("featured", [
-      "./Real%20Estate/cda2ae30-609c-4676-adf7-3932787cbc8c_rw_3840.jpg",
-      "./Food%20Photography/2898faf7-e80b-47ae-8633-46c9ee684898_rw_1200.jpg",
-      "./Product/5e4c6c60-3d9a-43c3-b21a-c1be21f61671_rw_1200.jpg",
-      "./Wedding%20Photos/Z62_1480.JPG",
+      "./Real%20Estate/e5cc9e4c-d416-4bd4-87b2-ddfbb1761350_rw_1920.jpg",
+      "./Food%20Photography/8969aff2-f300-4fb3-a0d0-197c2c53040f_rw_3840.jpg",
+      "./Event/d9520d2a-8197-4cc6-a964-a26d44965919_rw_1920.jpg",
     ]),
     "Real Estate": buildGalleryItems("Real Estate", [
       "./Real%20Estate/cda2ae30-609c-4676-adf7-3932787cbc8c_rw_3840.jpg",
