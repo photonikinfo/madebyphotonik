@@ -4,6 +4,46 @@ if (yearNode) {
   yearNode.textContent = String(new Date().getFullYear());
 }
 
+const sendConversionEvent = (eventName, payload = {}) => {
+  const entry = {
+    event: eventName,
+    page_location: window.location.href,
+    page_path: `${window.location.pathname}${window.location.hash}`,
+    ...payload,
+  };
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(entry);
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, payload);
+  }
+};
+
+document.addEventListener("click", (event) => {
+  const target = event.target instanceof Element ? event.target.closest("[data-conversion]") : null;
+
+  if (!target) {
+    return;
+  }
+
+  const conversionName = target.getAttribute("data-conversion");
+
+  if (!conversionName) {
+    return;
+  }
+
+  const ctaLabel =
+    target.getAttribute("data-conversion-label") ||
+    target.textContent?.trim() ||
+    conversionName;
+
+  sendConversionEvent(conversionName, {
+    cta_label: ctaLabel,
+    cta_href: target.getAttribute("href") || "",
+  });
+});
+
 const revealNodes = document.querySelectorAll("[data-reveal]");
 
 if ("IntersectionObserver" in window && revealNodes.length > 0) {
